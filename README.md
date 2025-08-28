@@ -87,6 +87,12 @@ Logical layout of classes and time slots.
 
 Consistent styling throughout the site, reducing user confusion. 
 
+Sitemap:
+
+<img width="786" height="277" alt="image" src="https://github.com/user-attachments/assets/74e7dd15-b6d3-48d0-bb8d-f003d5701132" />
+
+
+Repo:
 
 https://github.com/ST10476528/ST10476528---Gym-Web.git
 
