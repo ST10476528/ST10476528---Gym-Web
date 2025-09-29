@@ -32,14 +32,14 @@
   text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
 }
 
-/* Responsive container for layout */
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 16px;
 }
 
-/* Media queries for layout changes */
+
 @media (max-width: 768px) {
   header {
     flex-direction: column;
