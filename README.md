@@ -106,6 +106,38 @@ These choices reflect the core **branding and business goals**:
 
 ---
 
+## Figma Design
+<img width="767" height="419" alt="Screenshot 2025-09-28 at 15 34 49" src="https://github.com/user-attachments/assets/900d061e-cfae-4019-ae22-671e6f42f74a" />
+
+Each aspect of the Figma design I tried to replicate within Visual Studios
+
+---
+
+## Websites Screenshots
+<img width="813" height="614" alt="Screenshot 2025-09-29 at 20 44 00" src="https://github.com/user-attachments/assets/d4e24dd6-740f-490a-b1c2-c9b42e2efa66" />
+The Homepage, which comes with tabs to navigate, the contact us information, and about the websites information
+
+---
+<img width="807" height="608" alt="Screenshot 2025-09-29 at 20 44 22" src="https://github.com/user-attachments/assets/50a622a5-6b9a-48ef-abd9-ea9d6edc75eb" />
+The Classes page, which comes this the provided classes that the gym has to offer, and comes with the contact us information
+
+---
+<img width="810" height="613" alt="Screenshot 2025-09-29 at 20 44 37" src="https://github.com/user-attachments/assets/8ee64f1d-b3e4-4a05-8499-589f888f1b9b" />
+The Shop page, which displays the items on sale, along with the prices, and the page also comes with the contact us information
+
+<img width="793" height="613" alt="Screenshot 2025-09-29 at 22 16 24" src="https://github.com/user-attachments/assets/2d58d4df-6a81-40be-aa65-cce5fa756b75" />
+The Personal trainer page, which comes with a list of personal trrainers the the gym has the offer, it comes with a picture of each trainer, along with their personal infromation and there fees, and the page also comes with the contact us information
+
+---
+<img width="801" height="613" alt="Screenshot 2025-09-29 at 22 16 44" src="https://github.com/user-attachments/assets/bc75f960-7033-4737-9197-d6d441bca928" />
+The Contact us section, which is attached to the above pages, the contact us section comes with the different ways to contact the gym
+
+---
+<img width="805" height="514" alt="Screenshot 2025-09-29 at 22 17 08" src="https://github.com/user-attachments/assets/dbaa90e0-0dd8-48fe-8ef6-c9c6367461ab" />
+The About us section, comes with the history of the of the company/gym
+
+---
+
 ##  Repository
 
 **GitHub:**  
