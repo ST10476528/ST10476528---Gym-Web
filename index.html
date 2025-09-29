@@ -1,0 +1,31 @@
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<header class="header">
+  <div class="container nav">
+    <a class="logo" href="index.html">
+      <img src="images/logo.png" alt="Aesthetic Gym"> Aesthetic Gym
+    </a>
+
+    <button class="nav-toggle" aria-label="menu" onclick="document.querySelector('.header').classList.toggle('open')">
+      ☰
+    </button>
+
+    <ul class="menu">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="classes.html">Classes</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="personal-trainer.html">Personal Trainer</a></li>
+    </ul>
+  </div>
+</header>
+<footer class="footer">
+  <div class="container inner">
+    <div>© <span id="yr"></span> Aesthetic Gym</div>
+    <div class="social">
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">Twitter</a>
+    </div>
+  </div>
+  <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</footer>
