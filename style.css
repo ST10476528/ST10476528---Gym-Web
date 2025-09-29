@@ -249,20 +249,61 @@
   .product .btn{margin-top:auto; width:100%}
   
  
-  .trainers{
-    display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:18px;
+  .trainer-cards-grid {
+    display: grid;
+    grid-template-columns: 360px 360px; /* Fixed-width columns */
+    gap: 8px; /* Smaller space between columns and rows */
+    margin-top: 20px;
+    justify-content: start;
   }
-  .trainer-card{
-    display:grid; grid-template-columns:72px 1fr; gap:14px; align-items:center;
-    background:var(--bg-2); border:1px solid var(--line); border-radius:14px; padding:14px;
+  
+  .trainer-section {
+    padding: 40px 20px;
+    background-color: #111;
+    display: flex;
+    justify-content: center;
   }
-  .trainer-card .avatar{
-    width:72px; height:72px; border-radius:50%; background:#222;
-    border:1px solid var(--line);
-    display:grid; place-items:center; color:var(--muted); font-weight:700;
+  
+  .trainer-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 300px); /* fixed, cleaner width */
+    gap: 20px 30px; /* vertical and horizontal spacing */
+    justify-content: center;
   }
-  .trainer-card h5{margin:0; font-weight:800}
-  .trainer-card p{margin:6px 0 0; color:var(--muted); font-size:14px}
+  
+  .trainer-card {
+    background-color: #1c1c1c;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .trainer-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45);
+  }
+  
+  .trainer-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: #333;
+  }
+  
+  .trainer-card p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #e0e0e0;
+  }
   
 
   .about{
