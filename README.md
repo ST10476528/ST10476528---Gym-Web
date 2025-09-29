@@ -1,100 +1,129 @@
-ST10476528 - own designed website
+# Aesthetic Gym Website
 
-Organisation Overview 
+---
 
-Name: Aesthetic Gym 
+##  Organisation Overview
 
-Brief History: 
-Founded in 2020 and based in Cape Town South Africa, Aesthetic Gym was created with one vision in mind: to redefine the fitness journey through smart training, a results-driven approach, and a strong sense of community. Built by fitness enthusiasts, it aims to provide a dynamic training environment that supports both seasoned gym-goers and beginners. The gym offers a wide variety of classes—from calisthenics and CrossFit to Zumba—tailored to individual fitness goals. With an expanding range of products and personalized coaching services, Aesthetic Gym continues to grow as a fitness community rooted in discipline, strength, and personal transformation. 
+**Name:** Aesthetic Gym  
+**Founded:** 2020  
+**Location:** Cape Town, South Africa  
 
-  
+Aesthetic Gym was created with one vision in mind: to **redefine the fitness journey** through smart training, a results-driven approach, and a strong sense of community. Our aim is to provide a **dynamic, accessible fitness platform** for both seasoned gym-goers and beginners alike.
 
-Goals: 
+---
 
-Increase website traffic and brand visibility. 
+##  Website Goals
 
-Convert more leads into class bookings and product sales. 
+-  Increase website traffic and visibility
+-  Convert visitors into class bookings and product purchases
+-  Encourage sign-ups for personal training via CTAs
+-  Provide accurate, centralized access to information about classes, products, and trainers
 
-Encourage sign-ups for personal training and private sessions. 
+---
 
-Provide accessible, accurate information about classes, products, and trainers. 
+##  Key Performance Indicators (KPIs)
 
-Key Performance Indicators (KPIs): 
+- Monthly growth in website visits (Google Analytics)
+- Number of purchases made through the online shop
+- Personal trainer sign-up conversions via the "Let’s Connect" section
+- User engagement with class schedules and offerings
 
-Monthly increase in visitors (web analytics). 
+---
 
-Number of purchases made through the shop. 
+##  Features Implemented
 
-Number of personal training sign-ups via the “Let’s Connect You” section. 
+###  Essential Pages
+- **Homepage:** Bold banner, gym mission, hero text, and CTAs
+- **Classes:** Grid display of available workouts and schedules
+- **Shop:** Product catalog with prices in South African Rand (ZAR)
+- **Personal Trainers:** Trainer cards with bio, specialties, and contact
+- **About Us:** Gym story, values, and mission
+- **Contact:** Location, hours, social links, and contact form
 
-Engagement rate with the workout schedules and class information. 
+---
 
- 
+##  Design & User Experience
 
-Current Website Analysis 
+###  Colour Scheme
+- **Primary background:** Black & charcoal
+- **Accent colors:** Yellow and orange for CTAs and highlights
+- This reflects **intensity**, **energy**, and **luxury** in line with the Aesthetic Gym brand.
 
-Note: Assuming this is a new project or a redesign. 
+###  Typography
+- **Headers:** Bold sans-serif fonts for strength and visibility
+- **Body:** Clean, legible sans-serif fonts with ample contrast
 
-There is no prior website, but a gap was identified in online visibility and ease of booking classes and purchasing supplements. 
+###  Layout & Imagery
+- Strong visual imagery of fitness, products, and trainers
+- Grid-based layout used in **Shop**, **Classes**, and **Trainer** sections
+- Responsive alignment for consistency across screen sizes (desktop-focused)
 
-Customers often found it hard to access gym schedules, and there was no centralized system for buying gym products or signing up for personal training. 
+---
 
-Proposed Website Features and Functionality 
+##  What the CSS Did
 
-Essential Pages: 
+###  Structured the Layout
+- Used `CSS Flexbox` and `Grid` to create **2-column and 3-column layouts**
+- Ensured **equal spacing**, alignment, and clean section division
+- Locked fixed widths to **prevent layout shifting** across screen sizes
 
-Homepage: Highlights gym ethos, services, and CTA for personal training. 
+###  Enhanced Typography and Spacing
+- Applied `font-weight: bold` and increased size for hero sections
+- Used consistent padding, `gap`, and `line-height` to improve readability
+- Ensured spacing stayed tight and visually clean, especially on:
+  - **Trainer cards**
+  - **Shop products**
+  - **About Us paragraphs**
 
-Classes Page: Details various workout programs with times and descriptions. 
+###  Created Visual Emphasis
+- Added **hover effects** for interactivity
+- Implemented **gold and orange CTAs** for clear click-throughs
+- Overlaid subtle gradients to improve text contrast on hero images
 
-Shop Page: Displays products (supplements) with prices and imagery. 
+---
 
-Personal Trainer Page: Directs users to connect with trainers for personalized plans. 
+##  Visual Walkthrough (Screenshots)
 
-Functionality: 
+| Section        | Description                          |
+|----------------|--------------------------------------|
+|  Homepage     | Hero image, bold slogan, trainer CTA |
+|  Classes      | Card layout with descriptions        |
+|  Shop         | Product grid with consistent pricing |
+|  Trainers     | Table-layout cards with info/images  |
+|  Contact Us   | Structured info + social links       |
+|  About Us     | History, values, and vision          |
 
-Clear navigation bar with consistent links. 
+---
 
-Product catalog with local pricing in Rands. 
+##  Why These Designs Were Used
 
-Credit card form for smooth purchasing experience. 
+These choices reflect the core **branding and business goals**:
 
-Interactive CTAs like “Let’s connect you” for personalized trainer matching. 
+ **Bold & Motivational:** Fonts, colors, and layout build strength and excitement
+ **Conversion-driven:** Clear CTAs, shop layout, and pricing aid user decision
+ **Structured Experience:** Grid-based layouts allow easy scanning and navigation
+**User-friendly:** Information is direct, centered, and visually intuitive
 
- 
+---
 
-Design and User Experience 
+##  Repository
 
-Colour Scheme: Dominantly black and grey with pops of yellow and orange for call-to-action buttons and highlights, reflecting intensity and energy. 
+**GitHub:**  
+[https://github.com/ST10476528/ST10476528---Gym-Web.git](https://github.com/ST10476528/ST10476528---Gym-Web.git)
 
-Typography: 
+---
 
-Bold sans-serif headers to reflect strength and clarity. 
+##  Future Improvements
 
-Legible body text with visual contrast against dark backgrounds. 
+-  Add mobile responsiveness via media queries
+-  Integrate a real checkout/payment system
+-  Add filtering/search to Shop and Classes
+-  Enable trainer booking or messaging feature
 
-Layout and Design: 
+---
 
-Balanced use of imagery (fitness, supplements, trainers) with brief supporting text. 
+>  _“Come train with us – and Live Strong.”_
 
-Grid-based layout ensures clean product displays and readable schedules. 
-
-User Experience Considerations: 
-
-Simplified product purchase flow (Shop > Add > Checkout). 
-
-Logical layout of classes and time slots. 
-
-Consistent styling throughout the site, reducing user confusion. 
-
-Sitemap:
-
-<img width="786" height="277" alt="image" src="https://github.com/user-attachments/assets/74e7dd15-b6d3-48d0-bb8d-f003d5701132" />
-
-
-Repo:
-
-https://github.com/ST10476528/ST10476528---Gym-Web.git
 
  
 
