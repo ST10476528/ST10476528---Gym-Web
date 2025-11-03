@@ -1,13 +1,31 @@
+/* =========================================================
+   GYM WEBSITE – INTERACTIVITY + ANIMATIONS + UX + SEO
+   Vanilla JS, no dependencies. Include with: <script src="gym.js" defer></script>
+   Expected hooks in your HTML:
+   - Header/Nav: #header, #navToggle, #navMenu, .nav-link
+   - Scroll reveals: .reveal (optionally .reveal-left / .reveal-right)
+   - Back-to-top: #backToTop
+   - Testimonials slider: #testimonials .testimonial
+   - BMI: #bmi-form, #bmi-height, #bmi-weight, #bmi-result
+   - Class filter: #class-filter [data-filter], #classes .class-card[data-day][data-level]
+   - Forms: #signup-form (fullName, email, phone, goal, terms), #newsletter-form (email)
+   - Lazy images: <img data-src="...">
+   - Deferred Map: #mapFrame[data-src="...maps..."]
+   - YouTube lite: .yt-lite[data-video-id="XXXXXXXXXXX"]
+   - New animations:
+     * Counters: <span class="counter" data-target="500">0</span>
+     * Typewriter: #typewriter
+     * Scroll progress bar: #scrollProgress
+   ========================================================= */
+
 (() => {
   // ---------- Helpers ----------
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
-
   const smoothScrollTo = (el) => {
-    const y = el.getBoundingClientRect().top + window.scrollY - 72; // 72px header offset
+    const y = el.getBoundingClientRect().top + window.scrollY - 72; // offset for fixed header
     window.scrollTo({ top: y, behavior: 'smooth' });
   };
-
   const throttle = (fn, wait = 100) => {
     let last = 0;
     return (...args) => {
@@ -24,7 +42,6 @@
     const header = $('#header');
     const toggle = $('#navToggle');
     const menu = $('#navMenu');
-
     if (!toggle || !menu) return;
 
     const closeMenu = () => {
@@ -39,7 +56,7 @@
       menu.classList.toggle('open');
       document.body.classList.toggle('no-scroll');
     });
-// Close on link click (and smooth-scroll)
+
     $$('.nav-link', menu).forEach((a) => {
       a.addEventListener('click', (e) => {
         const href = a.getAttribute('href') || '';
@@ -52,7 +69,6 @@
       });
     });
 
-    // Sticky header shadow
     const onScroll = throttle(() => {
       if (window.scrollY > 8) header?.classList.add('scrolled');
       else header?.classList.remove('scrolled');
@@ -61,7 +77,7 @@
     window.addEventListener('scroll', onScroll);
   };
 
-  // ---------- Scroll Reveal Animations ----------
+  // ---------- Scroll Reveal Animations (with left/right variants) ----------
   const initReveals = () => {
     const els = $$('.reveal');
     if (!els.length) return;
@@ -164,7 +180,6 @@
       });
     };
 
-    // Toggle filters
     $$('[data-filter]', bar).forEach((btn) => {
       btn.addEventListener('click', () => {
         btn.classList.toggle('active');
@@ -229,17 +244,15 @@
 
       if (!ok) return;
 
-      // Fake async submit (replace with your API call)
       form.classList.add('is-loading');
       await new Promise((r) => setTimeout(r, 600));
       form.classList.remove('is-loading');
 
-      // Persist basic lead locally (optional)
       try {
         const leads = JSON.parse(localStorage.getItem('gym:leads') || '[]');
         leads.push({ name: data.fullName, email: data.email, ts: Date.now() });
         localStorage.setItem('gym:leads', JSON.stringify(leads));
-      } catch (e) {}
+      } catch (_) {}
 
       form.reset();
       alert('Thanks! We’ll be in touch shortly.');
@@ -263,13 +276,11 @@
     });
   };
 
-  // ---------- Lazy Images (fallback for older browsers) ----------
+  // ---------- Lazy Images ----------
   const initLazyImages = () => {
     const imgs = $$('img[data-src]');
-    if (!imgs.length || 'loading' in HTMLImageElement.prototype) {
-      // Browser supports native lazy or there are no data-src images
-      // Upgrade any data-src to src if already in DOM and near viewport
-    }
+    if (!imgs.length) return;
+
     const io = new IntersectionObserver(
       (entries, obs) => {
         entries.forEach((e) => {
@@ -296,7 +307,6 @@
         i.removeAttribute('data-src');
       }
     };
-    // load when visible or on user click
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => e.isIntersecting && (load(), io.disconnect()));
     });
@@ -311,7 +321,6 @@
     cards.forEach((card) => {
       const id = card.getAttribute('data-video-id');
       if (!id) return;
-      // Build thumbnail
       const img = new Image();
       img.alt = 'Play video';
       img.referrerPolicy = 'no-referrer';
@@ -341,9 +350,8 @@
     });
   };
 
-  // ---------- Light SEO Helpers (progressive enhancement) ----------
+  // ---------- Light SEO Helpers ----------
   const initSEO = () => {
-    // 1) JSON-LD Organization + LocalBusiness (helps Google understand the gym)
     const orgName = document.body.getAttribute('data-gym-name') || 'Your Gym';
     const phone = document.body.getAttribute('data-gym-phone') || '';
     const street = document.body.getAttribute('data-gym-street') || '';
@@ -373,7 +381,6 @@
     tag.textContent = JSON.stringify(ld);
     document.head.appendChild(tag);
 
-    // 2) Ensure images have alt text (fallback from data-alt or filename)
     $$('img').forEach((img) => {
       if (!img.hasAttribute('alt') || img.alt.trim() === '') {
         const fallback =
@@ -384,18 +391,94 @@
       }
     });
 
-    // 3) Meta description fallback if empty (not a substitute for proper static meta!)
     const desc = $('meta[name="description"]');
     if (!desc || !desc.content || desc.content.length < 20) {
       const el = desc || Object.assign(document.createElement('meta'), { name: 'description' });
       el.content =
-        `${orgName} – memberships, personal training, classes, and nutrition coaching. ` +
-        `Join today for a stronger, healthier you.`;
+        `${orgName} – memberships, personal training, classes, and nutrition coaching. Join today for a stronger, healthier you.`;
       if (!desc) document.head.appendChild(el);
     }
   };
 
-  // ---------- Kick everything off ----------
+  // ========================================================
+  // EXTRA ANIMATIONS
+  // ========================================================
+
+  // 1) Animated number counters
+  const initCounters = () => {
+    const counters = $$('.counter');
+    if (!counters.length) return;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const target = +el.dataset.target;
+            const duration = 2000; // ms
+            const start = performance.now();
+
+            const tick = (now) => {
+              const p = Math.min((now - start) / duration, 1);
+              const eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+              el.textContent = Math.floor(eased * target).toLocaleString();
+              if (p < 1) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+            io.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    counters.forEach((el) => io.observe(el));
+  };
+
+  // 2) Typewriter hero text
+  const initTypewriter = () => {
+    const el = $('#typewriter');
+    if (!el) return;
+    const texts = [
+      'Transform Your Body,',
+      'Transform Your Life.',
+      'Join the Movement Today!'
+    ];
+    let i = 0, j = 0, deleting = false;
+
+    const type = () => {
+      const current = texts[i];
+      el.textContent = current.slice(0, j);
+      if (!deleting && j < current.length) j++;
+      else if (deleting && j > 0) j--;
+      else if (!deleting && j === current.length) {
+        deleting = true;
+        setTimeout(type, 1600);
+        return;
+      } else if (deleting && j === 0) {
+        deleting = false;
+        i = (i + 1) % texts.length;
+      }
+      setTimeout(type, deleting ? 40 : 90);
+    };
+    type();
+  };
+
+  // 3) Scroll progress bar
+  const initScrollProgress = () => {
+    const bar = $('#scrollProgress');
+    if (!bar) return;
+    const update = () => {
+      const h = document.documentElement;
+      const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+      bar.style.width = pct + '%';
+    };
+    update();
+    window.addEventListener('scroll', throttle(update, 50));
+    window.addEventListener('resize', throttle(update, 100));
+  };
+
+  // ---------- Init ----------
   document.addEventListener('DOMContentLoaded', () => {
     initNav();
     initReveals();
@@ -409,5 +492,10 @@
     initMapDefer();
     initYouTubeLite();
     initSEO();
+    // New animations:
+    initCounters();
+    initTypewriter();
+    initScrollProgress();
   });
 })();
+
