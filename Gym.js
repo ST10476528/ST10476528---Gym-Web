@@ -1,22 +1,4 @@
-/* =========================================================
-   GYM WEBSITE – INTERACTIVITY + ANIMATIONS + UX + SEO
-   Vanilla JS, no dependencies. Include with: <script src="gym.js" defer></script>
-   Expected hooks in your HTML:
-   - Header/Nav: #header, #navToggle, #navMenu, .nav-link
-   - Scroll reveals: .reveal (optionally .reveal-left / .reveal-right)
-   - Back-to-top: #backToTop
-   - Testimonials slider: #testimonials .testimonial
-   - BMI: #bmi-form, #bmi-height, #bmi-weight, #bmi-result
-   - Class filter: #class-filter [data-filter], #classes .class-card[data-day][data-level]
-   - Forms: #signup-form (fullName, email, phone, goal, terms), #newsletter-form (email)
-   - Lazy images: <img data-src="...">
-   - Deferred Map: #mapFrame[data-src="...maps..."]
-   - YouTube lite: .yt-lite[data-video-id="XXXXXXXXXXX"]
-   - New animations:
-     * Counters: <span class="counter" data-target="500">0</span>
-     * Typewriter: #typewriter
-     * Scroll progress bar: #scrollProgress
-   ========================================================= */
+
 
 (() => {
   // ---------- Helpers ----------
