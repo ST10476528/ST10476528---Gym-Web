@@ -1,303 +1,104 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Enquiry | FlexLab Fitness</title>
-
-  <!-- Meta for SEO -->
-  <meta name="description" content="Ask about memberships, classes, personal training or facility tours. FlexLab Fitness enquiry form." />
-
-  <!-- Fonts (optional) -->
+  <title>Contact / Enquiry – Aesthetic Gym</title>
+  <meta name="description" content="Contact Aesthetic Gym – location, hours, phone, email and enquiry form." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-
   <style>
-    :root {
-      --bg: #0f1115;
-      --panel: #161a22;
-      --muted: #8b95a7;
-      --text: #e6e9ef;
-      --brand: #ff3b3b;
-      --brand-2: #ff9d00;
-      --ok: #2ecc71;
-      --err: #ff6262;
-      --radius: 16px;
+    :root{
+      --bg:#0c0f12; --panel:#141922; --ink:#e6e9ef; --muted:#9aa4b4; --line:rgba(255,255,255,.08);
+      --gold:#ffc107; --orange:#ff9d00; --radius:18px; --shadow:0 10px 40px rgba(0,0,0,.35);
     }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--text);
-      background: radial-gradient(1200px 800px at 20% -10%, #1d2330 0%, #0f1115 50%), var(--bg);
-      line-height: 1.5;
-    }
-    a { color: #fff; text-decoration: none; }
-    header {
-      position: sticky; top: 0; z-index: 50;
-      backdrop-filter: saturate(140%) blur(8px);
-      background: rgba(15,17,21,.6);
-      border-bottom: 1px solid rgba(255,255,255,.06);
-    }
-    .wrap { max-width: 980px; margin: 0 auto; padding: 18px 20px; }
-    .brand { font-weight: 800; letter-spacing: .3px; }
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 22px;
-      margin-top: 26px;
-    }
-    @media (min-width: 960px) {
-      .grid { grid-template-columns: 1.1fr .9fr; gap: 26px; }
-    }
-    .card {
-      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.005));
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: var(--radius);
-      padding: 22px;
-      box-shadow: 0 10px 40px rgba(0,0,0,.25);
-    }
-    h1 { margin: 8px 0 8px; font-size: clamp(28px, 3.4vw, 40px); }
-    p.lead { color: var(--muted); margin-top: 0; }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+    a{color:var(--ink);text-decoration:none}
+    img{max-width:100%;display:block}
+    .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
 
-    /* Form */
-    form { display: grid; gap: 14px; }
-    .row { display: grid; gap: 14px; grid-template-columns: 1fr; }
-    @media (min-width: 640px) { .row.two { grid-template-columns: 1fr 1fr; } }
-    label { font-weight: 600; font-size: 14px; margin-bottom: 6px; display: inline-block; }
-    .field { display: grid; gap: 6px; }
-    input, select, textarea {
-      width: 100%;
-      background: #0c0f14;
-      color: var(--text);
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 12px;
-      padding: 12px 14px;
-      outline: 0;
-      transition: border .15s ease, box-shadow .15s ease;
-    }
-    input:focus, select:focus, textarea:focus {
-      border-color: rgba(255,255,255,.25);
-      box-shadow: 0 0 0 3px rgba(255,255,255,.06);
-    }
-    textarea { min-height: 130px; resize: vertical; }
-    .hint { color: var(--err); font-size: 12px; min-height: 14px; }
-    .has-error input, .has-error textarea, .has-error select { border-color: var(--err); }
-    .help { color: var(--muted); font-size: 12px; }
+    header{position:sticky;top:0;z-index:40;background:rgba(12,15,18,.65);backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800}
+    .brand .logo{width:36px;height:36px;border-radius:10px;background:radial-gradient(60% 60% at 30% 30%,#333,#111)}
+    .menu{display:flex;gap:22px}
+    .menu a{color:#cfd6e3}
+    .menu a.active,.menu a:hover{color:var(--gold)}
 
-    .actions { display: flex; align-items: center; gap: 12px; margin-top: 8px; }
-    .btn {
-      background: linear-gradient(90deg,var(--brand),var(--brand-2));
-      color: #111;
-      font-weight: 800;
-      border: 0;
-      border-radius: 12px;
-      padding: 12px 16px;
-      cursor: pointer;
-      transition: transform .08s ease, filter .15s ease, opacity .15s ease;
-    }
-    .btn:hover { filter: brightness(1.05); }
-    .btn:active { transform: translateY(1px) scale(.99); }
-    .btn[disabled] { opacity: .6; cursor: not-allowed; }
+    .titlebar{padding:28px 0;border-bottom:1px solid var(--line)}
+    .titlebar h1{margin:0;font-size:clamp(26px,4vw,34px);text-align:center;letter-spacing:.5px}
 
-    .success {
-      display: none;
-      border-radius: 12px;
-      padding: 12px 14px;
-      background: rgba(46, 204, 113, .12);
-      border: 1px solid rgba(46, 204, 113, .35);
-      color: #b7f3cd;
-      font-weight: 600;
-    }
-    .success.show { display: block; }
+    .grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    @media (max-width:900px){.grid{grid-template-columns:1fr}}
+    .panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
+    .panel h3{margin:6px 0 10px}
 
-    /* Side card */
-    .contact-card p { margin: 6px 0; color: var(--muted); }
-    .map {
-      border: 0; width: 100%; height: 260px; border-radius: 12px;
-      background: #0c0f14;
-    }
+    form{display:grid;gap:12px}
+    .field{display:grid;gap:6px}
+    label{font-weight:600}
+    input,select,textarea{width:100%;background:#0e1218;color:var(--ink);border:1px solid var(--line);border-radius:12px;padding:12px 14px;outline:0}
+    textarea{min-height:120px;resize:vertical}
+    .btn{background:linear-gradient(90deg,var(--gold),var(--orange));color:#111;border:0;border-radius:12px;padding:12px 16px;font-weight:800;cursor:pointer}
 
-    /* Progress bar hook if you include gym.js */
-    #scrollProgress { position: fixed; top: 0; left: 0; height: 4px; width: 0; background: linear-gradient(90deg,#ff3b3b,#ff9d00); z-index: 9999; transition: width .15s ease-out; }
+    .map-frame{width:100%;height:280px;border:0;border-radius:12px;background:#0e1218}
+
+    footer{color:var(--muted);padding:26px 0;border-top:1px solid var(--line);margin-top:22px;text-align:center}
   </style>
 </head>
-<body data-gym-name="FlexLab Fitness" data-gym-city="Cape Town" data-gym-country="ZA">
-
-  <!-- Top progress bar (works with your gym.js scroll progress) -->
-  <div id="scrollProgress"></div>
-
-  <header>
-    <div class="wrap">
-      <a href="index.html" class="brand">FlexLab Fitness</a>
+<body>
+  <header id="header">
+    <div class="wrap nav">
+      <div class="brand"><div class="logo"></div> Aesthetic Gym</div>
+      <nav class="menu">
+        <a href="index.html">Home</a>
+        <a href="index.html#classes">Classes</a>
+        <a href="index.html#shop">Shop</a>
+        <a href="index.html#trainers">Personal Trainer</a>
+        <a class="active" href="#">Contact</a>
+      </nav>
     </div>
   </header>
 
-  <main class="wrap">
-    <h1 class="reveal">Enquiry Form</h1>
-    <p class="lead reveal">Ask us about memberships, class schedules, day passes, or personal training — we’ll get back to you ASAP.</p>
+  <div class="titlebar"><div class="wrap"><h1>CONTACT US</h1></div></div>
 
-    <div class="grid">
-      <!-- FORM PANEL -->
-      <section class="card reveal">
-        <form id="enquiry-form" novalidate>
-          <div class="row two">
-            <div class="field">
-              <label for="fullName">Full name</label>
-              <input id="fullName" name="fullName" type="text" placeholder="Aysha Samuels" autocomplete="name" required />
-              <div class="hint"></div>
-            </div>
+  <section class="wrap grid">
+    <article class="panel">
+      <h3>Find Us</h3>
+      <p>We’re located at 123 Fitness Avenue, Cape Town, South Africa.</p>
+      <iframe class="map-frame" title="Map Location" loading="lazy"
+        src="https://www.google.com/maps?q=Table+Mountain+Cape+Town&output=embed"
+        allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </article>
 
-            <div class="field">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required />
-              <div class="hint"></div>
-            </div>
-          </div>
+    <article class="panel">
+      <h3>Enquiry Form</h3>
+      <form id="enquiry-form">
+        <div class="field">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        </div>
+        <div class="field">
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" placeholder="Tell us more..." required></textarea>
+        </div>
+        <button class="btn" type="submit">Send Enquiry</button>
+      </form>
+    </article>
+  </section>
 
-          <div class="row two">
-            <div class="field">
-              <label for="phone">Phone (optional)</label>
-              <input id="phone" name="phone" type="tel" placeholder="+27 82 555 1234" autocomplete="tel" />
-              <div class="hint"></div>
-            </div>
+  <footer>
+    <div class="wrap">© <span id="year"></span> Aesthetic Gym</div>
+  </footer>
 
-            <div class="field">
-              <label for="topic">Topic</label>
-              <select id="topic" name="topic" required>
-                <option value="">Select a topic…</option>
-                <option value="membership">Memberships</option>
-                <option value="classes">Classes & Schedule</option>
-                <option value="pt">Personal Training</option>
-                <option value="tour">Facility Tour</option>
-                <option value="other">Other</option>
-              </select>
-              <div class="hint"></div>
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="message">Your message</label>
-            <textarea id="message" name="message" placeholder="Tell us what you’re looking for…" required></textarea>
-            <div class="hint"></div>
-          </div>
-
-          <div class="field">
-            <label><input type="checkbox" name="consent" id="consent" /> I agree to be contacted about my enquiry.</label>
-            <div class="help">We’ll never share your details.</div>
-            <div class="hint"></div>
-          </div>
-
-          <div class="actions">
-            <button class="btn" type="submit" id="submitBtn">Send enquiry</button>
-            <span class="help" id="saving" style="display:none;">Sending…</span>
-          </div>
-
-          <div id="success" class="success" role="status" aria-live="polite">
-             Thanks! Your enquiry has been sent — we’ll reply shortly.
-          </div>
-        </form>
-      </section>
-
-      <!-- SIDE INFO -->
-      <aside class="card contact-card reveal">
-        <h3>Contact details</h3>
-        <p><strong>Address:</strong> 123 Bree St, Cape Town</p>
-        <p><strong>Hours:</strong> Mon–Fri 5:30–21:00, Sat 7:00–18:00</p>
-        <p><strong>Email:</strong> <a href="mailto:hello@flexlab.fit">hello@flexlab.fit</a></p>
-        <p><strong>Phone:</strong> <a href="tel:+27215550100">+27 21 555 0100</a></p>
-
-        <h3 style="margin-top:16px;">Find us</h3>
-        <iframe
-          id="mapFrame"
-          class="map"
-          title="Gym Location"
-          loading="lazy"
-          data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.667!2d18.417!3d-33.924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3AGym!2sFlexLab!5e0!3m2!1sen!2sza!4v123"
-          allowfullscreen
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-      </aside>
-    </div>
-  </main>
-
-  <!-- If you already use gym.js, include it; it will handle the map lazy-load and progress bar -->
-  <script src="gym.js" defer></script>
-
-  <!-- Page-specific JS (validation + submit) -->
   <script>
-    (() => {
-      const $ = (s, r = document) => r.querySelector(s);
-      const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
-
-      const emailOk = v => /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(v || "");
-      const phoneOk = v => !v || /^[+()\\-\\s\\d]{7,}$/.test(v);
-
-      const setFieldError = (input, msg = "") => {
-        const field = input.closest(".field");
-        if (!field) return;
-        field.classList.toggle("has-error", !!msg);
-        const hint = field.querySelector(".hint");
-        if (hint) hint.textContent = msg;
-      };
-
-      const form = $("#enquiry-form");
-      const btn = $("#submitBtn");
-      const saving = $("#saving");
-      const success = $("#success");
-
-      const submitTo = {
-        // OPTION A (no backend): Formspree endpoint (create one & paste here)
-        formspree: "", // e.g. "https://formspree.io/f/abcdwxyz"
-        // OPTION B (your backend API): POST JSON to /api/enquiries
-        local: "/api/enquiries"
-      };
-
-      form?.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        success.classList.remove("show");
-
-        const data = Object.fromEntries(new FormData(form).entries());
-
-        // validation
-        let ok = true;
-        if (!data.fullName || data.fullName.trim().length < 2) { setFieldError(form.fullName, "Please enter your full name."); ok = false; } else setFieldError(form.fullName);
-        if (!emailOk(data.email)) { setFieldError(form.email, "Enter a valid email."); ok = false; } else setFieldError(form.email);
-        if (!phoneOk(data.phone)) { setFieldError(form.phone, "Use digits and + ( ) - only."); ok = false; } else setFieldError(form.phone);
-        if (!data.topic) { setFieldError(form.topic, "Please choose a topic."); ok = false; } else setFieldError(form.topic);
-        if (!data.message || data.message.trim().length < 10) { setFieldError(form.message, "Please add a short message."); ok = false; } else setFieldError(form.message);
-        if (!form.consent.checked) { setFieldError(form.consent, "Please confirm we can contact you."); ok = false; } else setFieldError(form.consent);
-
-        if (!ok) return;
-
-        // UX state
-        btn.disabled = true;
-        saving.style.display = "inline";
-
-        // choose destination (Formspree if provided, else local)
-        const endpoint = submitTo.formspree || submitTo.local;
-
-        try {
-          // If using Formspree, send as form-encoded; if local API, send JSON:
-          const res = await fetch(endpoint, submitTo.formspree
-            ? { method: "POST", headers: { "Accept": "application/json" }, body: new FormData(form) }
-            : { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) }
-          );
-
-          if (!res.ok) throw new Error("Request failed");
-
-          form.reset();
-          success.classList.add("show");
-        } catch (err) {
-          alert("Sorry — we couldn’t send your enquiry right now. Please email hello@flexlab.fit.");
-        } finally {
-          btn.disabled = false;
-          saving.style.display = "none";
-        }
-      });
-    })();
+    document.getElementById('year').textContent=new Date().getFullYear();
   </script>
 </body>
 </html>
